@@ -1,22 +1,32 @@
 body{
-    background-color: rgb(231, 252, 255);
+    background-color: rgb(255, 255, 255);
 }
-.container{
-    background-color: bisque;
-    border-radius: 8px;
-    padding: 4rem;
-    width: 350rem;
-}
+
 .col{
     position:relative;
     width: 48%;
     height: 12rem;
     border-radius:8px;
     border-width: 1.5px;
+    border-color: rgba(58, 58, 58, 0.815);
+    border-style: solid;
     margin: 10px;
     padding: 10px;
-    background-color: rgb(234, 255, 252);
+    background-color: rgb(255, 255, 255);
     transition: box-shadow 0.6s;
+}
+.cont{
+    float: right;
+    font-weight: 700;
+    color: gold;
+    text-shadow: #FC0 1px 0 10px;
+}
+.gold{
+    font-size: 28px;
+    color: gold;
+}
+#gold:hover{
+    box-shadow: #fc0 0px 0px 0px 2px;
 }
 .col:hover{
     box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
