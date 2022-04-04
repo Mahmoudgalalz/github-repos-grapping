@@ -21,7 +21,6 @@ function renderUsers(repos) {
                             <i class="bi bi-circle-fill languages"><span>${repo.language}</span></i>
                             </div>
                             </div>`;
-                            
         html += htmlSegment;
         container = document.querySelector('#hold');
         container.innerHTML = html;
