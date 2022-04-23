@@ -5,7 +5,7 @@ body{
 .col{
     position:relative;
     width: 48%;
-    height: 12rem;
+    height: 10rem;
     border-radius:8px;
     border-width: 1.5px;
     border-color: rgba(58, 58, 58, 0.815);
@@ -40,6 +40,10 @@ body{
 .description{
     font-size: 14px;
     margin: 10px 0 0 42px;
+    width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
 }
 .col a{
     font-size: 18px;
