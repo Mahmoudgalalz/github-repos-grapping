@@ -1,85 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 body{
     background-color: rgb(255, 255, 255);
 }
 
-.col{
-    position:relative;
-    width: 48%;
-    height: 10rem;
-    border-radius:8px;
-    border-width: 1.5px;
-    border-color: rgba(58, 58, 58, 0.815);
-    border-style: solid;
-    margin: 10px;
-    padding: 10px;
-    background-color: rgb(255, 255, 255);
-    transition: box-shadow 0.6s;
+a{
+    transition-duration: .6s;
 }
-.cont{
-    float: right;
-    font-weight: 700;
-    color: gold;
-    text-shadow: #FC0 1px 0 10px;
+a:hover{
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
-.gold{
-    font-size: 28px;
-    color: gold;
-}
-#gold:hover{
-    box-shadow: #fc0 0px 0px 0px 2px;
-}
-.col:hover{
-    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-}
+
 .bi-boxes{
     position:relative;
     font-size: 28px;
     margin:0 8px 0px 4px;
     top: 3px;
-}
-.description{
-    font-size: 14px;
-    margin: 10px 0 0 42px;
-    width: 80%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space:nowrap;
-}
-.col a{
-    font-size: 18px;
-    color: rgb(85, 141, 190);
-    text-decoration:none;
-}
-.col a:hover{
-    color: rgb(30, 76, 116);
-}
-.col a:visited{
-    color: rgb(2, 10, 17);
-}
-
-.languages{
-    font-size: 12px;
-    position:absolute;
-    bottom: 10px;
-    color: brown;
-    margin-left:6px;
-    text-align: center;
-}
-.languages span{
-    font-size: 14px;
-    margin-left: 5px;
-    color: rgb(34, 34, 34);
-}
-.badge{
-    position: absolute;
-    bottom: 45px;
-    background-color: rgba(177, 217, 255, 0.685) !important;
-    transition-duration: 0.3s;
-}
-.badge:hover{
-    cursor: pointer;
-    background-color: rgb(140, 174, 206) !important;
-}
-i{
-    font-style: normal;
 }

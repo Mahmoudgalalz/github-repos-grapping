@@ -11,64 +11,74 @@ async function getRepos() {
         console.log(error);
     }
 }
+// changing the status according to API to fix bugs
+function forkingState(fork){
+    if(fork) return 'Contrubiton';
+    else return 'Private';
+
+}
+function LanguageState(lang){
+    if(lang===null) return 'Not available';
+    return lang;
+}
+function upperCase(Char){
+    let fLetter=Char.charAt(0).toUpperCase();
+    let FullString=Char.slice(1,Char.length);
+
+    return fLetter+FullString;
+}
+function DescriptionState(Description){
+    if(Description===null) return `None`;
+    return Description;
+
+}
 function renderUsers(repos) {
     let html = '';
     let container;
     let htmlSegment;
     repos.forEach(repo => {
-        if(repo.fork && repo.description!=null && repo.language!=null){
-            htmlSegment = `<div class="col" id="gold">
-            <i class="bi bi-boxes gold"></i>
-            <p class="cont">Contribution</p>
-            <a class="links" href="${repo.html_url}">${repo.name}</a>
-            <p class="description">${repo.description}</p>
-            <span class="badge rounded-pill bg-light text-dark">${repo.topics}</span>
-            <i class="bi bi-circle-fill languages"><span>${repo.language}</span></i>
-            </div>
-            </div>`;
-        }
-        else if(repo.language===null){
-            htmlSegment = `<div class="col" id="gold">
-            <i class="bi bi-boxes gold"></i>
-            <p class="cont">Contribution</p>
-            <a class="links" href="${repo.html_url}">${repo.name}</a>
-            <p class="description"></p>
-            <span class="badge rounded-pill bg-light text-dark">${repo.topics}</span>
-            </div>
-            </div>`;
-        }
-        else if(repo.description===null){
-            htmlSegment = `<div class="col" id="gold">
-            <i class="bi bi-boxes gold"></i>
-            <p class="cont">Contribution</p>
-            <a class="links" href="${repo.html_url}">${repo.name}</a>
-            <p class="description"></p>
-            <span class="badge rounded-pill bg-light text-dark">${repo.topics}</span>
-            <i class="bi bi-circle-fill languages"><span>${repo.language}</span></i>
-            </div>
-            </div>`;
-        }
-        else if(repo.fork!=null&& repo.description===null){
-            htmlSegment = `<div class="col" id="gold">
-            <i class="bi bi-boxes gold"></i>
-            <p class="cont">Contribution</p>
-            <a class="links" href="${repo.html_url}">${repo.name}</a>
-            <p class="description"></p>
-            <span class="badge rounded-pill bg-light text-dark">${repo.topics}</span>
-            <i class="bi bi-circle-fill languages"><span>${repo.language}</span></i>
-            </div>
-            </div>`;
-        }
-        else{
-            htmlSegment = `<div class="col">
-                            <i class="bi bi-boxes"></i>
-                            <a class="links" href="${repo.html_url}">${repo.name}</a>
-                            <p class="description">${repo.description}</p>
-                            <span class="badge rounded-pill bg-light text-dark">${repo.topics}</span>
-                            <i class="bi bi-circle-fill languages"><span>${repo.language}</span></i>
-                            </div>
-                            </div>`;
-        }
+            htmlSegment = `
+            <div class="space-x-4">
+            <a
+                class="relative block p-8 overflow-hidden border border-gray-100 rounded-lg mt-6"
+                href="">
+                <span
+                  class="absolute inset-x-0 bottom-0 h-2  bg-gradient-to-r from-red-300 to-purple-600"
+                ></span>
+              
+                <div class="justify-between sm:flex">
+                  <div>
+                    <h5 class="text-xl font-bold text-gray-900">
+                    ${upperCase(repo.name)}
+                    </h5>
+                  </div>
+              
+                  <div class="flex-shrink-0 hidden ml-3 sm:block">
+                    <i
+                      class="bi bi-boxes"
+                    ></i>
+                  </div>
+                </div>
+              
+                <div class="mt-4 sm:pr-8">
+                  <p class="text-sm text-gray-500 whitespace-nowrap text-ellipsis overflow-hidden ...">
+                  ${DescriptionState(repo.description)}
+                  </p>
+                </div>
+              
+                <dl class="flex mt-6">
+                  <div class="flex flex-col-reverse">
+                    <dt class="text-sm font-medium text-gray-600">${LanguageState(repo.language)}</dt>
+                    <dd class="text-xs text-gray-500">Languages</dd>
+                  </div>
+              
+                  <div class="flex flex-col-reverse ml-3 sm:ml-6">
+                    <dt class="text-sm font-medium text-gray-600">${forkingState(repo.fork)}</dt>
+                    <dd class="text-xs text-gray-500">Type</dd>
+                  </div>
+                </dl>
+              </a></div>`;
+         
         html += htmlSegment;
         container = document.querySelector('#hold');
         container.innerHTML = html;
