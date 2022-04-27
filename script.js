@@ -39,9 +39,9 @@ function renderUsers(repos) {
     repos.forEach(repo => {
             htmlSegment = `
             <div class="space-x-4">
-            <a
+            <a target="_blank"
                 class="relative block p-8 overflow-hidden border border-gray-100 rounded-lg mt-6"
-                href="">
+                href="${repo.html_url}">
                 <span
                   class="absolute inset-x-0 bottom-0 h-2  bg-gradient-to-r from-red-300 to-purple-600"
                 ></span>
